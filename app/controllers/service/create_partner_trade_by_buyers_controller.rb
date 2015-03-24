@@ -24,5 +24,6 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
   end
 
   def show
+    @verify = Alipay::Notify.verify?(params.except(:controller, :action))
   end
 end
