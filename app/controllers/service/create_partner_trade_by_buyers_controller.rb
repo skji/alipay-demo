@@ -1,4 +1,7 @@
 class Service::CreatePartnerTradeByBuyersController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:notify]
+  before_action :verify_alipay_notify, only: [:show, :notify]
+
   def new
   end
 
@@ -24,6 +27,28 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
   end
 
   def show
+  end
+
+  def notify
+    if @verify
+      # business logic
+      case params[:trade_status]
+      when 'WAIT_BUYER_PAY'
+      when 'WAIT_SELLER_SEND_GOODS'
+      when 'TRADE_FINISHED'
+      when 'TRADE_CLOSED'
+      end
+
+      render text: 'success'
+    else
+      render text: 'fail'
+    end
+  end
+
+  private
+
+  def verify_alipay_notify
     @verify = Alipay::Notify.verify?(params.except(:controller, :action))
+    logger.info "Alipay notify verify: #{@verify}"
   end
 end
