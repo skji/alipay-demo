@@ -11,7 +11,7 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
       price: order.price,
       quantity: 1,
       discount: 0,
-      return_url: return_service_create_partner_trade_by_buyer_url,
+      return_url: service_create_partner_trade_by_buyer_url,
       notify_url: notify_service_create_partner_trade_by_buyer_url,
       logistics_type: 'DIRECT',
       logistics_fee: 0,
@@ -21,5 +21,8 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
       receive_zip: '100000',
       receive_mobile: '100000000000'
     )
+  end
+
+  def show
   end
 end
