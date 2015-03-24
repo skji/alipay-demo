@@ -17,12 +17,11 @@ ActiveRecord::Schema.define(version: 20150324030744) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.string   "number",                              null: false
-    t.decimal  "price",      precision: 10, scale: 2, null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "orders", ["number"], name: "index_orders_on_number", unique: true, using: :btree
+  add_index "orders", ["number"], name: "index_orders_on_number", unique: true, where: "(number IS NOT NULL)", using: :btree
 
 end
