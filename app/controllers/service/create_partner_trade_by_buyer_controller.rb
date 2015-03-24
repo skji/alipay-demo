@@ -1,0 +1,2 @@
+class Service::CreatePartnerTradeByBuyerController < ApplicationController
+end
