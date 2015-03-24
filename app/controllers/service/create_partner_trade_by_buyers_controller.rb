@@ -31,10 +31,18 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
 
   def notify
     if @verify
+      order = Order.find_by number: params[:out_trade_no]
+      logger.info "Order #{order.number} #{params[:trade_status]}"
+
       # business logic
       case params[:trade_status]
       when 'WAIT_BUYER_PAY'
       when 'WAIT_SELLER_SEND_GOODS'
+        Alipay::Service.send_goods_confirm_by_platform(
+          trade_no: params[:trade_no],
+          logistics_name: 'AlipayDemo',
+          transport_type: 'DIRECT'
+        )
       when 'TRADE_FINISHED'
       when 'TRADE_CLOSED'
       end
