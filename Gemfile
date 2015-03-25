@@ -27,8 +27,10 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'alipay', '~> 0.5.0'
 
 # Use for heroku deployment and foreman develpment
-gem 'rails_12factor'
-gem 'puma'
+group :development, :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
