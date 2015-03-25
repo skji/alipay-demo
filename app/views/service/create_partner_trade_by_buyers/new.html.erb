@@ -1,3 +1,16 @@
-<h2>create_partner_trade_by_buyer</h2>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">担保交易 create_partner_trade_by_buyer</li>
+</ol>
 
-<%= button_to 'Create', service_create_partner_trade_by_buyer_path, method: 'post', class: 'btn btn-primary' %>
+<dl>
+  <dt>Description</dt>
+  <dd>Click 'Pay by Alipay' button, redirect to alipay payment page. Redirect to return_path after complted payment, You will see alipay sync notify. Check async notify in application logs.</dd>
+  <dt>Price</dt>
+  <dd>￥0.01</dd>
+
+</dl>
+
+<p>
+  <%= button_to 'Pay by Alipay', service_create_partner_trade_by_buyer_path, method: 'post', class: 'btn btn-primary' %>
+</p>
