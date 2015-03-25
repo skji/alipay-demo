@@ -1,19 +1,16 @@
-<h2>create_partner_trade_by_buyer</h2>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li> <%= link_to '担保交易 create_partner_trade_by_buyer', new_service_create_partner_trade_by_buyer_path %> </li>
+  <li class="active">Return</li>
+</ol>
 
-<h3>Return page</h3>
-
-<p>
-  Verify?
-</p>
-
-<p>
-  <%= @verify %>
-</p>
-
-<p>
-  Params:
-</p>
-
-<pre>
-<%= JSON.pretty_generate params %>
-</pre>
+<dl>
+  <dt>Verify?</dt>
+  <dd><%= @verify %></dd>
+  <dt>Params</dt>
+  <dd>
+    <pre>
+      <%= JSON.pretty_generate params %>
+    </pre>
+  </dd>
+</dl>
