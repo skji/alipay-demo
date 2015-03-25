@@ -49,7 +49,11 @@ Replace xxx to your test alipay account config.
 $ heroku open
 ```
 
-Done.
+### Show Heroku logs
+
+```console
+$ heroku logs --tail
+```
 
 ## Deploy to self-host server
 
