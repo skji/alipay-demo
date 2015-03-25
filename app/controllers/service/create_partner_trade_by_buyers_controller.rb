@@ -6,12 +6,12 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
   end
 
   def create
-    order = Order.create
+    order_number = "#{Time.now.to_s :number}-#{SecureRandom.hex(4)}"
 
     redirect_to Alipay::Service.create_partner_trade_by_buyer_url(
-      out_trade_no: order.number,
-      subject: "AlipayDemo #{order.number}",
-      price: order.price,
+      out_trade_no: order_number,
+      subject: "AlipayDemo #{order_number}",
+      price: 0.01,
       quantity: 1,
       discount: 0,
       return_url: service_create_partner_trade_by_buyer_url,
@@ -31,8 +31,7 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
 
   def notify
     if @verify
-      order = Order.find_by number: params[:out_trade_no]
-      logger.info "Order #{order.number} #{params[:trade_status]}"
+      logger.info "Order #{params[:out_trade_no]} status: #{params[:trade_status]}"
 
       # business logic
       case params[:trade_status]
