@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
-gem 'alipay', '~> 0.6.0.beta2'
+gem 'alipay', '~> 0.6.0'
 
 # Use for heroku deployment and foreman develpment
 group :development, :production do
