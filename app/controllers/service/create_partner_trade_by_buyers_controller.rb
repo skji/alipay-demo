@@ -55,7 +55,8 @@ class Service::CreatePartnerTradeByBuyersController < ApplicationController
   private
 
   def verify_alipay_notify
-    @verify = Alipay::Notify.verify?(params.except(:controller, :action))
+    # params except :controller, :action, and other path params.
+    @verify = Alipay::Notify.verify?(params.except(*request.path_parameters.keys))
     logger.info "Alipay notify verify: #{@verify}"
   end
 end
