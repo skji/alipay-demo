@@ -38,7 +38,6 @@ $ git push heroku master
 ```console
 $ heroku config ALIPAY_PID=xxx
 $ heroku config ALIPAY_KEY=xxx
-$ heroku config ALIPAY_SELLER_EMAIL=xxx
 ```
 
 Replace xxx to your test alipay account config.
